@@ -83,14 +83,11 @@ $RECYCLE.BIN/
 
 #Azure profiling file
 *.vspx
-src/Hosts/EMC.Portals.Admin.Web/Content/sass/.sass-cache/
 .sass-cache/
 *.ncrunchproject
-src/EMH.Portals.Api.v2.ncrunchsolution
 *NCrunch*
 *ncrunch*
-src/.idea/config/applicationhost.config
 .idea/
 src/packages/
-src/Hosts/EMH.Portals.Api.Web/ConnectionStringSecret.config
 src/.vs/
+tools/
