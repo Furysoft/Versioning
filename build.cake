@@ -81,7 +81,7 @@ Task("Push-To-NuGet")
     .IsDependentOn("Package")
     .Does(() =>
 {
-var nugetKey=EnvironmentVariable("NugetApi")
+var nugetKey=EnvironmentVariable("NugetApi");
 
       var settings = new DotNetCoreNuGetPushSettings
      {
