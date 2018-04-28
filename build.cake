@@ -23,7 +23,6 @@ var buildDir = Directory("./src/Component/Furysoft.Versioning/bin") + Directory(
 Task("Clean")
     .Does(() =>
 {
-    Information(EnvironmentVariable("Test"));
     CleanDirectory(buildDir);
 });
 
@@ -82,7 +81,14 @@ Task("Push-To-NuGet")
     .IsDependentOn("Package")
     .Does(() =>
 {
+var nugetKey=EnvironmentVariable("NugetApi")
 
+      var settings = new DotNetCoreNuGetPushSettings
+     {
+         ApiKey = nugetKey
+     };
+
+     DotNetCoreNuGetPush("**/Furysoft.Versioning.nupkg", settings);
 });
 
 Task("Push-To-GitHub")
