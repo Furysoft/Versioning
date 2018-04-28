@@ -20,8 +20,6 @@ var buildDir = Directory("./src/Component/Furysoft.Versioning/bin") + Directory(
 Task("Clean")
     .Does(() =>
 {
-    Information("ASD");
-    ParseProject("./src/Component/Furysoft.Versioning/Furysoft.Versioning.csproj");
     CleanDirectory(buildDir);
 });
 
