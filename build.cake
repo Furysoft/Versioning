@@ -81,6 +81,7 @@ Task("Push-To-NuGet")
     .IsDependentOn("Package")
     .Does(() =>
 {
+<<<<<<< HEAD
 var nugetKey=EnvironmentVariable("NugetApi")
 
       var settings = new DotNetCoreNuGetPushSettings
@@ -88,6 +89,13 @@ var nugetKey=EnvironmentVariable("NugetApi")
          ApiKey = nugetKey
      };
 
+=======
+      var settings = new DotNetCoreNuGetPushSettings
+     {
+         ApiKey = "NugetApi"
+     };
+
+>>>>>>> release
      DotNetCoreNuGetPush("**/Furysoft.Versioning.nupkg", settings);
 });
 
