@@ -23,6 +23,7 @@ var buildDir = Directory("./src/Component/Furysoft.Versioning/bin") + Directory(
 Task("Clean")
     .Does(() =>
 {
+    Information(EnvironmentVariable("Test")
     CleanDirectory(buildDir);
 });
 
