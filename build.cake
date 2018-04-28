@@ -85,7 +85,8 @@ var nugetKey=EnvironmentVariable("NugetApi");
 
       var settings = new DotNetCoreNuGetPushSettings
      {
-         ApiKey = nugetKey
+         ApiKey = nugetKey,
+         Source = "https://api.nuget.org/v3/index.json"
      };
 
      DotNetCoreNuGetPush("**/Furysoft.Versioning.nupkg", settings);
