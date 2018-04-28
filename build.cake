@@ -82,7 +82,12 @@ Task("Push-To-NuGet")
     .IsDependentOn("Package")
     .Does(() =>
 {
+      var settings = new DotNetCoreNuGetPushSettings
+     {
+         ApiKey = "NugetApi"
+     };
 
+     DotNetCoreNuGetPush("**/Furysoft.Versioning.nupkg", settings);
 });
 
 Task("Push-To-GitHub")
