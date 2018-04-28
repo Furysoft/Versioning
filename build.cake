@@ -1,4 +1,7 @@
 #tool nuget:?package=NUnit.ConsoleRunner&version=3.4.0
+#tool Bumpy
+#addin Cake.Bumpy
+#addin nuget:?package=Cake.Git
 //////////////////////////////////////////////////////////////////////
 // ARGUMENTS
 //////////////////////////////////////////////////////////////////////
@@ -55,8 +58,15 @@ Task("Run-Unit-Tests")
                 });
 });
 
-Task("Package")
+Task("Increment-Version")
     .IsDependentOn("Run-Unit-Tests")
+    .Does(() =>
+{
+    BumpyIncrement(3);
+});
+
+Task("Package")
+    .IsDependentOn("Increment-Version")
     .Does(() =>
 {
     DotNetCorePack("./src/Component/Furysoft.Versioning/Furysoft.Versioning.csproj", new DotNetCorePackSettings
@@ -67,12 +77,28 @@ Task("Package")
     });
 });
 
+Task("Push-To-NuGet")
+    .IsDependentOn("Package")
+    .Does(() =>
+{
+
+});
+
+Task("Push-To-GitHub")
+    .IsDependentOn("Push-To-NuGet")
+    .Does(() =>
+{
+    var filePaths = new FilePath[] { "./src/Component/Furysoft.Versioning/Furysoft.Versioning.csproj" };
+    GitAdd(".", filePaths);
+    GitCommit(".", "name", "email", "message");
+});
+
 //////////////////////////////////////////////////////////////////////
 // TASK TARGETS
 //////////////////////////////////////////////////////////////////////
 
 Task("Default")
-    .IsDependentOn("Package");
+    .IsDependentOn("Push-To-GitHub");
 
 //////////////////////////////////////////////////////////////////////
 // EXECUTION

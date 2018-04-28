@@ -1,0 +1,2 @@
+[**/Furysoft.Versioning.csproj]
+regex = (?<version>\d+\.\d+\.\d+)(?!")
