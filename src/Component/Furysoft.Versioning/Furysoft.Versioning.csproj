@@ -12,6 +12,7 @@
     <PackageReleaseNotes>Initial Release</PackageReleaseNotes>
     <Description>Versioning entities for in-flight DTO messages to allow for dynamic handling based on version / type.</Description>
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.3</Version>
   </PropertyGroup>
 
   <ItemGroup>
