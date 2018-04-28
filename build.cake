@@ -89,7 +89,7 @@ var nugetKey=EnvironmentVariable("NugetApi");
          Source = "https://api.nuget.org/v3/index.json"
      };
 
-     DotNetCoreNuGetPush("**/Furysoft.Versioning.nupkg", settings);
+     DotNetCoreNuGetPush("**/Furysoft.Versioning.*.nupkg", settings);
 });
 
 Task("Push-To-GitHub")
