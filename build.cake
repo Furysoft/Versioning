@@ -58,15 +58,8 @@ Task("Run-Unit-Tests")
                 });
 });
 
-Task("Increment-Version")
-    .IsDependentOn("Run-Unit-Tests")
-    .Does(() =>
-{
-    BumpyIncrement(3);
-});
-
 Task("Package")
-    .IsDependentOn("Increment-Version")
+    .IsDependentOn("Run-Unit-Tests")
     .Does(() =>
 {
     DotNetCorePack("./src/Component/Furysoft.Versioning/Furysoft.Versioning.csproj", new DotNetCorePackSettings
@@ -77,8 +70,15 @@ Task("Package")
     });
 });
 
-Task("Push-To-NuGet")
+Task("Increment-Version")
     .IsDependentOn("Package")
+    .Does(() =>
+{
+    BumpyIncrement(3);
+});
+
+Task("Push-To-NuGet")
+    .IsDependentOn("Increment-Version")
     .Does(() =>
 {
 var nugetKey=EnvironmentVariable("NugetApi");
@@ -98,7 +98,8 @@ Task("Push-To-GitHub")
 {
     var filePaths = new FilePath[] { "./src/Component/Furysoft.Versioning/Furysoft.Versioning.csproj" };
     GitAdd(".", filePaths);
-    GitCommit(".", "name", "email", "message");
+    GitCommit(".", "gitlab", "n/a", "Version increment from GitLab");
+    GitPush(".")
 });
 
 //////////////////////////////////////////////////////////////////////
