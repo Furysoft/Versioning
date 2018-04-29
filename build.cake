@@ -99,7 +99,7 @@ Task("Push-To-GitHub")
     var filePaths = new FilePath[] { "./src/Component/Furysoft.Versioning/Furysoft.Versioning.csproj" };
     GitAdd(".", filePaths);
     GitCommit(".", "gitlab", "n/a", "Version increment from GitLab");
-    GitPush(".")
+    GitPush(".");
 });
 
 //////////////////////////////////////////////////////////////////////
