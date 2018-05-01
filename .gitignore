@@ -58,15 +58,6 @@ _ReSharper*/
 App_Data/*.mdf
 App_Data/*.ldf
 
-# =========================
-# Telerik Rubbish
-# =========================
-_UpgradeWizard_Files*/
-UpgradeWizardLog.xml
-
-# =========================
-# Windows detritus
-# =========================
 
 # Windows image file caches
 Thumbs.db
@@ -78,7 +69,7 @@ Desktop.ini
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
 
-# Mac crap
+# Mac
 .DS_Store
 
 #Azure profiling file
