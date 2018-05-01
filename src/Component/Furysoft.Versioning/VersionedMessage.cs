@@ -27,4 +27,3 @@ namespace Furysoft.Versioning
         public DtoVersion Version { get; set; }
     }
 }
-}
