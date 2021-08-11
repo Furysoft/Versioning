@@ -22,8 +22,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Jetbrains.Annotations" Version="11.1.0" />
-    <PackageReference Include="Stylecop.Analyzers" Version="1.0.2" PrivateAssets="All" />
+    <PackageReference Include="Jetbrains.Annotations" Version="2021.2.0" />
+    <PackageReference Include="Stylecop.Analyzers" Version="1.1.118" PrivateAssets="All" />
   </ItemGroup>
 
 </Project>
